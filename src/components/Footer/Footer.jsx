@@ -1,8 +1,34 @@
 import styles from './styles/Footer.module.css';
 
+const scrollTo = (e, href) => {
+    e.preventDefault();
+    const el = document.querySelector(href);
+    if (!el) return;
+    const offset = 70;
+    const top = el.getBoundingClientRect().top + window.scrollY - offset;
+    window.scrollTo({ top, behavior: 'smooth' });
+};
+
+const quickLinks = [
+    { label: 'Home', href: '#home' },
+    { label: 'About Dr. Meenakshi', href: '#about' },
+    { label: 'Services', href: '#services' },
+    { label: 'Programs', href: '#programs' },
+    { label: 'Success Stories', href: '#success' },
+    { label: 'Reviews', href: '#reviews' },
+];
+
+const programLinks = [
+    { label: 'Weight Loss Programs', href: '#programs' },
+    { label: 'Diabetes Reversal', href: '#programs' },
+    { label: 'PCOD & Hormonal Health', href: '#programs' },
+    { label: 'Sports Nutrition', href: '#programs' },
+    { label: 'Child Nutrition', href: '#programs' },
+];
+
 const Footer = () => {
     return (
-        <footer className={styles.footer}>
+        <footer className={styles.footer} id="contact">
             <div className={styles.upper}>
                 {/* Brand */}
                 <div>
@@ -32,8 +58,10 @@ const Footer = () => {
                 <div>
                     <h4 className={styles.colTitle}>Quick Links</h4>
                     <ul className={styles.colLinks}>
-                        {['Home', 'About Dr. Meenakshi', 'Services', 'Programs', 'Success Stories', 'Blog'].map((l) => (
-                            <li key={l}><a href="#">{l}</a></li>
+                        {quickLinks.map((l) => (
+                            <li key={l.label}>
+                                <a href={l.href} onClick={(e) => scrollTo(e, l.href)}>{l.label}</a>
+                            </li>
                         ))}
                     </ul>
                 </div>
@@ -42,8 +70,10 @@ const Footer = () => {
                 <div>
                     <h4 className={styles.colTitle}>Our Programs</h4>
                     <ul className={styles.colLinks}>
-                        {['Weight Loss Programs', 'Diabetes Reversal', 'PCOD & Hormonal Health', 'Sports Nutrition', 'Child Nutrition'].map((l) => (
-                            <li key={l}><a href="#">{l}</a></li>
+                        {programLinks.map((l) => (
+                            <li key={l.label}>
+                                <a href={l.href} onClick={(e) => scrollTo(e, l.href)}>{l.label}</a>
+                            </li>
                         ))}
                     </ul>
                 </div>
@@ -64,7 +94,7 @@ const Footer = () => {
                     <p>© 2026 Dr. Meenakshi Jain. All rights reserved.</p>
                     <div className={styles.lowerLinks}>
                         <a href="#">Privacy Policy</a>
-                        <a href="#">Terms & Conditions</a>
+                        <a href="#">Terms &amp; Conditions</a>
                     </div>
                 </div>
             </div>

@@ -7,13 +7,12 @@
 }
 
 .container {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 0 16px;
+  width: 100%;
+  padding: 0 40px;
   display: flex;
   align-items: center;
-  height: 62px;
-  gap: 16px;
+  height: 72px;
+  position: relative;
 }
 
 /* Logo */
@@ -32,14 +31,14 @@
 }
 
 .logoName {
-  font-size: 13px;
+  font-size: 17px;
   font-weight: 800;
   color: #1a1a1a;
   white-space: nowrap;
 }
 
 .logoTagline {
-  font-size: 9.5px;
+  font-size: 12px;
   color: #2d6a4f;
   font-weight: 600;
   letter-spacing: 0.4px;
@@ -53,15 +52,18 @@
   list-style: none;
   margin: 0;
   padding: 0;
-  flex: 1;
+  /* Perfectly centered in the navbar */
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .navLinks li a {
   text-decoration: none;
-  font-size: 12.5px;
+  font-size: 15px;
   font-weight: 500;
   color: #333;
-  padding: 5px 9px;
+  padding: 6px 13px;
   border-radius: 4px;
   transition: color 0.2s, background 0.2s;
   white-space: nowrap;
@@ -86,6 +88,8 @@
   gap: 10px;
   flex-shrink: 0;
   margin-left: auto;
+  position: relative;
+  z-index: 1;
 }
 
 .bookBtn {
@@ -95,12 +99,14 @@
   background: #2d6a4f;
   color: #fff;
   text-decoration: none;
-  padding: 9px 14px;
+  padding: 11px 20px;
   border-radius: 5px;
-  font-size: 12px;
+  font-size: 15px;
   font-weight: 700;
   white-space: nowrap;
   transition: background 0.2s;
+  position: relative;
+  z-index: 1;
 }
 
 .bookBtn:hover {

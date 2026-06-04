@@ -1,8 +1,10 @@
+import { useModal } from '../../context/ModalContext';
 import styles from './styles/FooterCTA.module.css';
 
 const FooterCTA = () => {
+    const { openModal } = useModal();
     return (
-        <section className={styles.footerCta}>
+        <section className={styles.footerCta} id="book">
             <div className={styles.container}>
                 <div className={styles.leftImg}>
                     <img src="/salad_bowl.png" alt="Healthy Nutrition" className={styles.bowlImg} />
@@ -14,12 +16,12 @@ const FooterCTA = () => {
                     <p className={styles.sub}>
                         Book your personalised consultation today and take charge of your health.
                     </p>
-                    <a href="#book" className={styles.ctaBtn}>Book Appointment Now →</a>
+                    <a href="#book" className={styles.ctaBtn} onClick={(e) => { e.preventDefault(); openModal(); }}>Book Appointment Now →</a>
                 </div>
                 <div className={styles.consultBox}>
                     <div className={styles.consultIcon}>📋</div>
                     <h3 className={styles.consultTitle}>Book Your<br />Personalized Consultation</h3>
-                    <a href="#consult" className={styles.consultBtn}>Book Appointment Now →</a>
+                    <a href="#book" className={styles.consultBtn} onClick={(e) => { e.preventDefault(); openModal(); }}>Book Appointment Now →</a>
                 </div>
             </div>
         </section>

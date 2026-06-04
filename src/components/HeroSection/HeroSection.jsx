@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react';
+import { useModal } from '../../context/ModalContext';
 import styles from './styles/HeroSection.module.css';
 
 const HeroSection = () => {
     const [time, setTime] = useState({ days: 12, hrs: 8, min: 45, sec: 20 });
+    const { openModal } = useModal();
 
     useEffect(() => {
         const target = new Date('2026-06-05T00:00:00');
@@ -58,8 +60,8 @@ const HeroSection = () => {
                     </div>
 
                     <div className={styles.ctaRow}>
-                        <a href="#join" className={styles.primaryBtn}>Join the Challenge Now →</a>
-                        <a href="#video" className={styles.watchBtn}>
+                        <a href="#book" className={styles.primaryBtn} onClick={(e) => { e.preventDefault(); openModal(); }}>Join the Challenge Now →</a>
+                        <a href="#success" className={styles.watchBtn} onClick={(e) => { e.preventDefault(); const el = document.querySelector('#success'); if(el){ const top = el.getBoundingClientRect().top + window.scrollY - 70; window.scrollTo({top, behavior:'smooth'}); } }}>
                             <span className={styles.playCircle}>▶</span>
                             Watch Video
                         </a>
@@ -110,7 +112,7 @@ const HeroSection = () => {
                                 </div>
                             ))}
                         </div>
-                        <a href="#join" className={styles.limitedSeats}>🔥 Limited Seats Available!</a>
+                        <a href="#book" className={styles.limitedSeats} onClick={(e) => { e.preventDefault(); openModal(); }}>🔥 Limited Seats Available!</a>
                     </div>
                 </div>
             </div>

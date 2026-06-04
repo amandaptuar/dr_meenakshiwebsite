@@ -2,12 +2,12 @@
     background: #fff;
     border-top: 3px solid #2d6a4f;
     border-bottom: 1px solid #e0ede4;
-    padding: 28px 16px;
+    padding: 30px 40px;
+    width: 100%;
 }
 
 .inner {
-    max-width: 1280px;
-    margin: 0 auto;
+    width: 100%;
     display: flex;
     justify-content: space-around;
     align-items: stretch;
@@ -48,14 +48,14 @@
 }
 
 .value {
-    font-size: 26px;
+    font-size: 34px;
     font-weight: 900;
     color: #2d6a4f;
     line-height: 1;
 }
 
 .label {
-    font-size: 11.5px;
+    font-size: 16px;
     color: #555;
     font-weight: 500;
     white-space: pre-line;
@@ -63,7 +63,7 @@
 }
 
 .sub {
-    font-size: 9.5px;
+    font-size: 14px;
     color: #aaa;
     font-style: italic;
 }

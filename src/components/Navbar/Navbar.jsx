@@ -1,8 +1,29 @@
 import { useState } from 'react';
+import { useModal } from '../../context/ModalContext';
 import styles from './styles/Navbar.module.css';
+
+const NAV_LINKS = [
+    { label: 'Home', href: '#home' },
+    { label: 'About Dr. Meenakshi', href: '#about' },
+    { label: 'Services', href: '#services' },
+    { label: 'Programs', href: '#programs' },
+    { label: 'Success Stories', href: '#success' },
+    { label: 'Blog', href: '#reviews' },
+    { label: 'Contact', href: '#book' },
+];
+
+const scrollTo = (e, href) => {
+    e.preventDefault();
+    const el = document.querySelector(href);
+    if (!el) return;
+    const offset = 70; // navbar height
+    const top = el.getBoundingClientRect().top + window.scrollY - offset;
+    window.scrollTo({ top, behavior: 'smooth' });
+};
 
 const Navbar = () => {
     const [menuOpen, setMenuOpen] = useState(false);
+    const { openModal } = useModal();
 
     return (
         <nav className={styles.navbar}>
@@ -25,18 +46,29 @@ const Navbar = () => {
 
                 {/* Nav Links */}
                 <ul className={`${styles.navLinks} ${menuOpen ? styles.open : ''}`}>
-                    <li><a href="#home" className={styles.activeLink}>Home</a></li>
-                    <li><a href="#about">About Dr. Meenakshi</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#programs">Programs</a></li>
-                    <li><a href="#success">Success Stories</a></li>
-                    <li><a href="#blog">Blog</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    {NAV_LINKS.map((link) => (
+                        <li key={link.href}>
+                            <a
+                                href={link.href}
+                                className={link.href === '#home' ? styles.activeLink : ''}
+                                onClick={(e) => {
+                                    if (link.href === '#book') {
+                                        e.preventDefault();
+                                        openModal();
+                                    } else {
+                                        scrollTo(e, link.href);
+                                    }
+                                }}
+                            >
+                                {link.label}
+                            </a>
+                        </li>
+                    ))}
                 </ul>
 
                 {/* Right side: CTA + Hamburger */}
                 <div className={styles.right}>
-                    <a href="#book" className={styles.bookBtn}>
+                    <a href="#book" className={styles.bookBtn} onClick={(e) => { e.preventDefault(); openModal(); }}>
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                             <rect x="3" y="4" width="18" height="18" rx="2" />
                             <line x1="16" y1="2" x2="16" y2="6" />
@@ -61,14 +93,33 @@ const Navbar = () => {
             {menuOpen && (
                 <div className={styles.mobileMenu}>
                     <ul>
-                        <li><a href="#home" onClick={() => setMenuOpen(false)}>Home</a></li>
-                        <li><a href="#about" onClick={() => setMenuOpen(false)}>About Dr. Meenakshi</a></li>
-                        <li><a href="#services" onClick={() => setMenuOpen(false)}>Services</a></li>
-                        <li><a href="#programs" onClick={() => setMenuOpen(false)}>Programs</a></li>
-                        <li><a href="#success" onClick={() => setMenuOpen(false)}>Success Stories</a></li>
-                        <li><a href="#blog" onClick={() => setMenuOpen(false)}>Blog</a></li>
-                        <li><a href="#contact" onClick={() => setMenuOpen(false)}>Contact</a></li>
-                        <li><a href="#book" onClick={() => setMenuOpen(false)} className={styles.mobileBookBtn}>Book Appointment</a></li>
+                        {NAV_LINKS.map((link) => (
+                            <li key={link.href}>
+                                <a
+                                    href={link.href}
+                                    onClick={(e) => { 
+                                        if (link.href === '#book') {
+                                            e.preventDefault();
+                                            openModal();
+                                        } else {
+                                            scrollTo(e, link.href); 
+                                        }
+                                        setMenuOpen(false); 
+                                    }}
+                                >
+                                    {link.label}
+                                </a>
+                            </li>
+                        ))}
+                        <li>
+                            <a
+                                href="#book"
+                                onClick={(e) => { e.preventDefault(); openModal(); setMenuOpen(false); }}
+                                className={styles.mobileBookBtn}
+                            >
+                                Book Appointment
+                            </a>
+                        </li>
                     </ul>
                 </div>
             )}

@@ -1,11 +1,12 @@
 .section {
-    padding: 50px 16px;
+    padding: 30px 40px;
     background: #f6fbf7;
+    width: 100%;
 }
 
 .title {
     text-align: center;
-    font-size: 16px;
+    font-size: 22px;
     font-weight: 700;
     color: #555;
     letter-spacing: 2.5px;
@@ -13,8 +14,7 @@
 }
 
 .grid {
-    max-width: 1200px;
-    margin: 0 auto;
+    width: 100%;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 18px;
@@ -62,7 +62,7 @@
 .tagBadge {
     background: #2d6a4f;
     color: #fff;
-    font-size: 13px;
+    font-size: 17px;
     font-weight: 800;
     padding: 6px 14px;
     border-radius: 20px;
@@ -107,21 +107,21 @@
 }
 
 .name {
-    font-size: 14px;
+    font-size: 18px;
     font-weight: 800;
     color: #111;
     margin: 4px 0 2px;
 }
 
 .result {
-    font-size: 12px;
+    font-size: 16px;
     color: #2d6a4f;
     font-weight: 600;
     margin: 0;
 }
 
 .detail {
-    font-size: 11px;
+    font-size: 15px;
     color: #888;
     margin: 0;
 }

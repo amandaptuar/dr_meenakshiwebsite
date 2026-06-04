@@ -8,10 +8,12 @@ import RoadmapSection from './components/RoadmapSection/RoadmapSection';
 import ClientsSaySection from './components/ClientsSaySection/ClientsSaySection';
 import FooterCTA from './components/FooterCTA/FooterCTA';
 import Footer from './components/Footer/Footer';
+import { ModalProvider } from './context/ModalContext';
+import AppointmentModal from './components/AppointmentModal/AppointmentModal';
 
 function App() {
   return (
-    <>
+    <ModalProvider>
       <Navbar />
       <HeroSection />
       <StatsBar />
@@ -22,7 +24,8 @@ function App() {
       <ClientsSaySection />
       <FooterCTA />
       <Footer />
-    </>
+      <AppointmentModal />
+    </ModalProvider>
   );
 }
 

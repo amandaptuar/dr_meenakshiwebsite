@@ -1,3 +1,4 @@
+import { useModal } from '../../context/ModalContext';
 import styles from './styles/TransformBanner.module.css';
 
 const features = [
@@ -10,8 +11,9 @@ const features = [
 ];
 
 const TransformBanner = () => {
+    const { openModal } = useModal();
     return (
-        <section className={styles.banner}>
+        <section className={styles.banner} id="services">
             <div className={styles.inner}>
                 {/* Salad image top-left */}
                 <div className={styles.imgWrapper}>
@@ -52,7 +54,7 @@ const TransformBanner = () => {
                         </div>
                     </div>
                     <div className={styles.btnCol}>
-                        <a href="#join" className={styles.regBtn}>Register Now →</a>
+                        <a href="#book" className={styles.regBtn} onClick={(e) => { e.preventDefault(); openModal(); }}>Register Now →</a>
                         <a href="tel:+919876543210" className={styles.callBtn}>📞 Call Now</a>
                     </div>
                 </div>

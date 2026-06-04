@@ -25,7 +25,7 @@ const reviews = [
 
 const ClientsSaySection = () => {
     return (
-        <section className={styles.section}>
+        <section className={styles.section} id="reviews">
             <h2 className={styles.sectionTitle}>— WHAT MY CLIENTS SAY —</h2>
             <div className={styles.reviewsGrid}>
                 {reviews.map((r, i) => (

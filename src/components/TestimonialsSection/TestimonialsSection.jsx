@@ -37,7 +37,7 @@ const people = [
 
 const TestimonialsSection = () => {
     return (
-        <section className={styles.section}>
+        <section className={styles.section} id="success">
             <h2 className={styles.title}>— REAL PEOPLE, REAL RESULTS —</h2>
 
             <div className={styles.grid}>

@@ -1,6 +1,8 @@
+import { useModal } from '../../context/ModalContext';
 import styles from './styles/AboutSection.module.css';
 
 const AboutSection = () => {
+    const { openModal } = useModal();
     return (
         <section className={styles.about} id="about">
             <div className={styles.container}>
@@ -28,7 +30,7 @@ const AboutSection = () => {
                             </li>
                         ))}
                     </ul>
-                    <a href="#about" className={styles.btn}>Know More About Dr. Meenakshi →</a>
+                    <a href="#book" className={styles.btn} onClick={(e) => { e.preventDefault(); openModal(); }}>Book a Consultation →</a>
                 </div>
 
                 {/* Right image */}

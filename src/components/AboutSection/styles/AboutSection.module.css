@@ -1,11 +1,11 @@
 .about {
-    padding: 60px 16px;
+    padding: 30px 40px;
     background: #fff;
+    width: 100%;
 }
 
 .container {
-    max-width: 1280px;
-    margin: 0 auto;
+    width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 56px;
@@ -13,7 +13,7 @@
 }
 
 .tag {
-    font-size: 11px;
+    font-size: 15px;
     font-weight: 800;
     letter-spacing: 2px;
     color: #2d6a4f;
@@ -22,7 +22,7 @@
 }
 
 .heading {
-    font-size: 34px;
+    font-size: 44px;
     font-weight: 800;
     color: #111;
     margin: 0 0 6px;
@@ -45,7 +45,7 @@
 }
 
 .intro {
-    font-size: 14px;
+    font-size: 18px;
     color: #555;
     line-height: 1.7;
     margin-bottom: 22px;
@@ -61,7 +61,7 @@
 }
 
 .creds li {
-    font-size: 13.5px;
+    font-size: 17px;
     color: #333;
     font-weight: 500;
     display: flex;
@@ -81,9 +81,9 @@
     border: 2px solid #2d6a4f;
     color: #2d6a4f;
     text-decoration: none;
-    padding: 11px 22px;
+    padding: 14px 28px;
     border-radius: 5px;
-    font-size: 13.5px;
+    font-size: 17px;
     font-weight: 700;
     transition: all 0.2s;
 }
@@ -107,7 +107,7 @@
     }
 
     .heading {
-        font-size: 26px;
+        font-size: 30px;
     }
 
     .right {

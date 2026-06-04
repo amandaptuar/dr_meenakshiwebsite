@@ -1,3 +1,4 @@
+import { useModal } from '../../context/ModalContext';
 import styles from './styles/ProgramsSection.module.css';
 
 const programs = [
@@ -52,6 +53,7 @@ const programs = [
 ];
 
 const ProgramsSection = () => {
+    const { openModal } = useModal();
     return (
         <section className={styles.section} id="programs">
             <div className={styles.container}>
@@ -81,7 +83,8 @@ const ProgramsSection = () => {
                                     <li key={h} style={{ color: p.accent }}>✔ <span>{h}</span></li>
                                 ))}
                             </ul>
-                            <a href="#book" className={styles.learnMore} style={{ color: p.accent }}>
+                            <a href="#book" className={styles.learnMore} style={{ color: p.accent }}
+                                onClick={(e) => { e.preventDefault(); openModal(); }}>
                                 Learn More →
                             </a>
                         </div>

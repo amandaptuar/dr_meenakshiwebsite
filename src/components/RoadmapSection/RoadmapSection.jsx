@@ -1,3 +1,4 @@
+import { useModal } from '../../context/ModalContext';
 import styles from './styles/RoadmapSection.module.css';
 
 const weeks = [
@@ -28,8 +29,9 @@ const perks = [
 ];
 
 const RoadmapSection = () => {
+    const { openModal } = useModal();
     return (
-        <section className={styles.section}>
+        <section className={styles.section} id="roadmap">
             <div className={styles.container}>
                 <h2 className={styles.heading}>🗺️ 21 Days Transformation Roadmap</h2>
 
@@ -121,8 +123,8 @@ const RoadmapSection = () => {
                         </div>
                     </div>
                     <div className={styles.bBtns}>
-                        <a href="#join" className={styles.regBtn}>Register Now →</a>
-                        <a href="#consult" className={styles.consultBtn}>Book Consultation</a>
+                        <a href="#book" className={styles.regBtn} onClick={(e) => { e.preventDefault(); openModal(); }}>Register Now →</a>
+                        <a href="#book" className={styles.consultBtn} onClick={(e) => { e.preventDefault(); openModal(); }}>Book Consultation</a>
                     </div>
                 </div>
             </div>
