@@ -2,16 +2,20 @@
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: #fff;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.07);
+  background: #ffffff;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.04);
+  transition: all 0.3s ease;
 }
 
 .container {
   width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
   padding: 0 40px;
   display: flex;
   align-items: center;
-  height: 72px;
+  justify-content: space-between;
+  height: 80px;
   position: relative;
 }
 
@@ -19,7 +23,7 @@
 .logo {
   display: flex;
   align-items: center;
-  gap: 9px;
+  gap: 10px;
   flex-shrink: 0;
   text-decoration: none;
 }
@@ -31,53 +35,51 @@
 }
 
 .logoName {
-  font-size: 17px;
+  font-family: var(--font-sans);
+  font-size: var(--text-h4);
   font-weight: 800;
-  color: #1a1a1a;
+  color: var(--color-primary);
   white-space: nowrap;
+  letter-spacing: -0.5px;
 }
 
 .logoTagline {
-  font-size: 12px;
-  color: #2d6a4f;
+  font-size: var(--text-caption);
+  color: var(--color-text-light);
   font-weight: 600;
-  letter-spacing: 0.4px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
 }
 
 /* Nav links - desktop */
 .navLinks {
   display: flex;
   align-items: center;
-  gap: 0;
+  gap: var(--space-2);
   list-style: none;
   margin: 0;
   padding: 0;
-  /* Perfectly centered in the navbar */
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
 }
 
 .navLinks li a {
   text-decoration: none;
   font-size: 15px;
   font-weight: 500;
-  color: #333;
-  padding: 6px 13px;
-  border-radius: 4px;
-  transition: color 0.2s, background 0.2s;
+  color: var(--color-text-dark);
+  padding: var(--space-1);
+  transition: all 0.2s ease;
   white-space: nowrap;
   display: block;
 }
 
 .navLinks li a:hover {
-  color: #2d6a4f;
+  color: var(--color-primary);
 }
 
 .activeLink {
-  color: #2d6a4f !important;
+  color: var(--color-primary) !important;
   font-weight: 700 !important;
-  border-bottom: 2px solid #2d6a4f;
+  border-bottom: 2px solid var(--color-primary);
   border-radius: 0;
 }
 
@@ -85,32 +87,30 @@
 .right {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: var(--space-2);
   flex-shrink: 0;
-  margin-left: auto;
-  position: relative;
-  z-index: 1;
 }
 
 .bookBtn {
   display: flex;
   align-items: center;
-  gap: 6px;
-  background: #2d6a4f;
+  gap: var(--space-1);
+  background: var(--color-primary);
   color: #fff;
   text-decoration: none;
-  padding: 11px 20px;
-  border-radius: 5px;
-  font-size: 15px;
-  font-weight: 700;
+  padding: 14px 24px;
+  border-radius: 14px;
+  font-size: var(--text-secondary);
+  font-weight: 600;
   white-space: nowrap;
-  transition: background 0.2s;
-  position: relative;
-  z-index: 1;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 10px rgba(34, 58, 24, 0.25);
 }
 
 .bookBtn:hover {
   background: #1b4332;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(45, 106, 79, 0.4);
 }
 
 /* Hamburger */

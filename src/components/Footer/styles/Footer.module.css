@@ -1,78 +1,86 @@
 .footer {
-    background: #0d1f17;
-    color: #d0d0d0;
+    background: #0d1e0a;
+    color: #cbd5e1;
 }
 
 .upper {
     width: 100%;
-    padding: 30px 40px 30px;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: var(--space-10) var(--space-5) var(--space-5);
     display: grid;
     grid-template-columns: 1.6fr 1fr 1fr 1fr;
-    gap: 36px;
+    gap: var(--space-6);
 }
 
 /* Brand */
 .logoRow {
     display: flex;
     align-items: center;
-    gap: 9px;
-    margin-bottom: 12px;
+    gap: var(--space-2);
+    margin-bottom: var(--space-2);
 }
 
 .brandName {
-    font-size: 18px;
+    font-size: var(--text-h4);
     font-weight: 800;
-    color: #fff;
+    color: #ffffff;
     margin: 0;
 }
 
 .brandSub {
-    font-size: 14px;
-    color: #40916c;
-    margin: 0;
+    font-size: var(--text-caption);
+    color: var(--color-accent);
+    margin: 2px 0 0 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
 }
 
 .brandDesc {
-    font-size: 16px;
-    color: #888;
-    line-height: 1.65;
-    margin-bottom: 16px;
+    font-size: var(--text-small);
+    color: #94a3b8;
+    line-height: 1.7;
+    margin-bottom: var(--space-3);
+    max-width: 320px;
 }
 
 .socials {
     display: flex;
-    gap: 8px;
+    gap: var(--space-1);
 }
 
 .sBtn {
-    width: 30px;
-    height: 30px;
+    width: 36px;
+    height: 36px;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.07);
+    background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.1);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #aaa;
-    font-size: 10px;
+    color: #ffffff;
+    font-size: var(--text-caption);
     font-weight: 700;
     text-decoration: none;
-    transition: background 0.2s;
+    transition: all 0.2s ease;
 }
 
 .sBtn:hover {
-    background: #2d6a4f;
-    color: #fff;
-    border-color: #2d6a4f;
+    background: var(--color-accent);
+    color: #ffffff;
+    border-color: var(--color-accent);
+    transform: translateY(-2px);
 }
 
 /* Columns */
 .colTitle {
-    font-size: 16px;
-    font-weight: 800;
-    color: #fff;
-    margin: 0 0 14px;
-    letter-spacing: 0.3px;
+    font-size: var(--text-small);
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0 0 var(--space-2);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
 }
 
 .colLinks {
@@ -81,18 +89,19 @@
     margin: 0;
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: var(--space-1);
 }
 
 .colLinks li a {
-    font-size: 16px;
-    color: #999;
+    font-size: var(--text-small);
+    color: #94a3b8;
     text-decoration: none;
     transition: color 0.2s;
+    font-weight: 500;
 }
 
 .colLinks li a:hover {
-    color: #40916c;
+    color: var(--color-accent);
 }
 
 .contactList {
@@ -101,61 +110,71 @@
     margin: 0;
     display: flex;
     flex-direction: column;
-    gap: 9px;
+    gap: var(--space-1);
 }
 
 .contactList li {
-    font-size: 16px;
-    color: #999;
+    font-size: var(--text-small);
+    color: #94a3b8;
     line-height: 1.5;
+    display: flex;
+    align-items: center;
+    font-weight: 500;
 }
 
 /* Bottom */
 .lower {
-    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    background: #091507;
 }
 
 .lowerInner {
     width: 100%;
-    padding: 14px 40px;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: var(--space-3) var(--space-5);
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: var(--space-1);
 }
 
 .lowerInner p {
-    font-size: 14px;
-    color: #555;
+    font-size: var(--text-caption);
+    color: #64748b;
     margin: 0;
+    font-weight: 500;
 }
 
 .lowerLinks {
     display: flex;
-    gap: 18px;
+    gap: var(--space-2);
 }
 
 .lowerLinks a {
-    font-size: 14px;
-    color: #555;
+    font-size: var(--text-caption);
+    color: #64748b;
     text-decoration: none;
     transition: color 0.2s;
+    font-weight: 500;
 }
 
 .lowerLinks a:hover {
-    color: #40916c;
+    color: var(--color-accent);
 }
 
 @media (max-width: 900px) {
     .upper {
         grid-template-columns: 1fr 1fr;
+        gap: var(--space-5);
     }
 }
 
 @media (max-width: 520px) {
     .upper {
         grid-template-columns: 1fr;
+        gap: var(--space-4);
     }
 
     .lowerInner {

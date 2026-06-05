@@ -1,151 +1,170 @@
 .section {
-    padding: 30px 40px;
-    background: #f9f9f9;
+    padding: var(--space-10) var(--space-5);
+    background: var(--color-light-bg);
     width: 100%;
 }
 
 .container {
     width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
 }
 
 .heading {
     text-align: center;
-    font-size: 34px;
-    font-weight: 800;
-    color: #1a1a1a;
-    margin: 0 0 32px;
+    font-size: var(--text-h2);
+    font-weight: 700;
+    color: var(--color-primary);
+    margin: 0 0 var(--space-6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-1);
+}
+
+.leaf {
+    font-size: 32px;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
 }
 
 .grid {
     display: grid;
-    grid-template-columns: 1fr auto 1fr;
-    gap: 20px;
-    align-items: start;
-    margin-bottom: 28px;
+    grid-template-columns: 1fr 1fr 280px 1fr 1fr;
+    gap: var(--space-3);
+    align-items: stretch;
+    margin-bottom: var(--space-5);
 }
 
-/* Week columns */
-.weeksLeft {
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-}
-
-.rightCol {
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-}
-
+/* Week Cards */
 .weekCard {
-    border-radius: 8px;
-    padding: 16px;
+    border-radius: 14px;
+    padding: var(--space-4) var(--space-2) var(--space-2);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+    border: 1px solid #e2ebd5;
+    background: #ffffff;
+    position: relative;
+    display: flex;
+    flex-direction: column;
 }
 
-.wkLabel {
-    font-size: 12px;
+.wkLabelBadge {
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--color-primary);
+    color: #ffffff;
+    font-size: var(--text-caption);
     font-weight: 800;
     letter-spacing: 1.5px;
+    padding: 6px 16px;
+    border-radius: 20px;
+    white-space: nowrap;
+    box-shadow: 0 4px 10px rgba(34, 58, 24, 0.2);
 }
 
 .wkTitle {
-    font-size: 15px;
+    font-size: var(--text-secondary);
     font-weight: 800;
-    color: #111;
-    margin: 3px 0 2px;
+    color: var(--color-text-dark);
+    margin: 0 0 4px;
+    text-align: center;
 }
 
 .wkDays {
-    font-size: 13px;
-    color: #888;
-    margin-bottom: 8px;
+    font-size: var(--text-caption);
+    color: var(--color-text-light);
+    margin-bottom: var(--space-2);
+    font-weight: 600;
+    text-align: center;
 }
 
 .wkItems {
     list-style: none;
     padding: 0;
-    margin: 0 0 8px;
+    margin: 0 0 var(--space-3);
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    gap: var(--space-1);
+    flex: 1;
 }
 
 .wkItems li {
-    font-size: 15px;
-    color: #444;
-}
-
-.wkResult {
+    font-size: var(--text-small);
+    color: var(--color-text-dark);
+    font-weight: 500;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    border-top: 1px dashed;
-    border-color: inherit;
-    padding-top: 8px;
-    font-size: 13px;
-    color: #555;
+    gap: var(--space-1);
 }
 
-.wkResult strong {
-    color: #2d6a4f;
+.checkIcon {
+    color: var(--color-primary);
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+}
+
+.wkResultPill {
+    background: #f0fdf4;
+    border: 1px solid #dcfce7;
+    border-radius: 14px;
+    padding: var(--space-2);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-top: auto;
+}
+
+.wkResultLabel {
+    font-size: var(--text-caption);
+    color: var(--color-text-light);
+    font-weight: 600;
+}
+
+.wkResultValue {
+    font-size: var(--text-secondary);
     font-weight: 800;
+    color: var(--color-primary);
 }
 
-/* Center */
-.center {
+/* Center Graphic */
+.centerGraphic {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 16px;
+    justify-content: center;
 }
 
-.bigBox {
-    background: linear-gradient(135deg, #2d6a4f, #1b4332);
-    border-radius: 12px;
-    padding: 24px 20px;
-    text-align: center;
-    color: #fff;
-    width: 130px;
+.fullGraphicImg {
+    width: 100%;
+    max-width: 280px;
+    height: auto;
+    object-fit: contain;
 }
 
-.bigNum {
-    display: block;
-    font-size: 52px;
-    font-weight: 900;
-    line-height: 1;
-}
-
-.bigSub {
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    margin: 4px 0 0;
-    opacity: 0.85;
-    line-height: 1.4;
-}
-
-.transformImg {
-    width: 200px;
-    height: 200px;
+/* Perks Card */
+.perksCard {
+    background: #fdfbf7;
     border-radius: 14px;
-    object-fit: cover;
-    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.12);
-    border: 3px solid #fff;
-}
-
-/* Perks */
-.perks {
-    background: #fff;
-    border-radius: 10px;
-    padding: 18px;
-    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.07);
+    padding: var(--space-4) var(--space-2) var(--space-2);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+    border: 1px solid #e2ebd5;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
 }
 
 .perksTitle {
-    font-size: 14px;
-    font-weight: 800;
-    color: #1a1a1a;
-    margin: 0 0 12px;
+    font-size: var(--text-body);
+    font-weight: 700;
+    color: var(--color-primary);
+    margin: 0 0 var(--space-2);
+    text-align: center;
+    position: relative;
+    z-index: 2;
 }
 
 .perksList {
@@ -154,136 +173,162 @@
     margin: 0;
     display: flex;
     flex-direction: column;
-    gap: 7px;
+    gap: var(--space-1);
+    position: relative;
+    z-index: 2;
 }
 
 .perksList li {
-    font-size: 16px;
-    color: #333;
+    font-size: var(--text-small);
+    color: var(--color-text-dark);
     font-weight: 500;
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: var(--space-1);
 }
 
-.perkCheck {
-    font-size: 13px;
+.checkIconSolid {
+    color: var(--color-primary);
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+}
+
+.yogaIcon {
+    position: absolute;
+    bottom: -10px;
+    right: -10px;
+    width: 120px;
+    height: 120px;
+    color: rgba(184, 203, 172, 0.2);
+    z-index: 1;
 }
 
 /* Bottom bar */
 .bottomBar {
-    background: linear-gradient(135deg, #1b4332, #2d6a4f);
-    border-radius: 10px;
-    padding: 18px 24px;
+    background: var(--color-primary);
+    border-radius: 14px;
+    padding: var(--space-3) var(--space-4);
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: var(--space-4);
     flex-wrap: wrap;
+    box-shadow: 0 8px 24px rgba(34, 58, 24, 0.15);
 }
 
 .bStat {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: var(--space-1);
     flex: 1;
-    min-width: 130px;
+    min-width: 150px;
 }
 
-.bStat span {
-    font-size: 22px;
+.bIconGold {
+    color: #ffb100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
 }
 
 .bStat p {
     margin: 0;
-    font-size: 16px;
+    font-size: var(--text-secondary);
     font-weight: 700;
-    color: #fff;
+    color: #ffffff;
+    line-height: 1.2;
 }
 
 .bStat small {
-    font-size: 12px;
-    color: rgba(255, 255, 255, 0.65);
+    font-size: var(--text-caption);
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 500;
 }
 
 .bBtns {
     display: flex;
-    gap: 10px;
+    gap: var(--space-1);
     flex-wrap: wrap;
     margin-left: auto;
 }
 
 .regBtn {
-    background: #f9a825;
-    color: #1a1a1a;
+    background: var(--color-accent);
+    color: #ffffff;
     text-decoration: none;
-    padding: 11px 18px;
-    border-radius: 5px;
-    font-size: 12.5px;
-    font-weight: 700;
+    padding: 14px 24px;
+    border-radius: 14px;
+    font-size: var(--text-secondary);
+    font-weight: 600;
     white-space: nowrap;
-    transition: background 0.2s;
+    transition: all 0.2s ease;
 }
 
 .regBtn:hover {
-    background: #f57f17;
+    background: var(--color-accent-hover);
 }
 
 .consultBtn {
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    color: #fff;
+    background: #ffffff;
+    color: var(--color-primary);
     text-decoration: none;
-    padding: 11px 18px;
-    border-radius: 5px;
-    font-size: 12.5px;
+    padding: 14px 24px;
+    border-radius: 14px;
+    font-size: var(--text-secondary);
     font-weight: 600;
     white-space: nowrap;
-    transition: background 0.2s;
+    transition: all 0.2s ease;
 }
 
 .consultBtn:hover {
-    background: rgba(255, 255, 255, 0.18);
+    background: #f0fdf4;
+}
+
+@media (max-width: 1200px) {
+    .grid {
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 20px;
+    }
+    
+    .centerGraphic {
+        grid-row: 1;
+        grid-column: 1 / -1;
+        max-width: 300px;
+        margin: 0 auto 30px;
+    }
 }
 
 @media (max-width: 900px) {
     .grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr;
     }
-
-    .center {
-        flex-direction: row;
-        justify-content: center;
-        gap: 20px;
-        margin: 8px 0;
-    }
-
-    .transformImg {
-        width: 160px;
-        height: 160px;
+    
+    .perksCard {
+        grid-column: 1 / -1;
     }
 }
 
 @media (max-width: 600px) {
-    .center {
-        flex-direction: column;
+    .grid {
+        grid-template-columns: 1fr;
     }
-
-    .transformImg {
-        width: 140px;
-        height: 140px;
-    }
-
+    
     .bottomBar {
         flex-direction: column;
         align-items: stretch;
+        padding: 20px;
+        gap: 20px;
     }
 
     .bBtns {
         margin-left: 0;
+        flex-direction: column;
     }
 
     .regBtn,
     .consultBtn {
         text-align: center;
+        width: 100%;
     }
 }

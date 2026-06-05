@@ -22,15 +22,20 @@ const AboutSection = () => {
                             'Ph.D. in Nutrition & Dietetics',
                             '25+ Years of Clinical & Lifestyle Nutrition Experience',
                             'Specialist in Weight Management & Metabolic Health',
-                            'Personalised, Practical & Science-backed Diet Plans',
-                            'Trusted by 12,000+ Clients Worldwide',
+                            'Personalized, Practical & Science-backed Diet Plans',
+                            'Trusted by 10,000+ Clients Worldwide',
                         ].map((c) => (
                             <li key={c}>
-                                <span className={styles.tick}>✅</span> {c}
+                                <span className={styles.tick}>
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                                        <polyline points="20 6 9 17 4 12" />
+                                    </svg>
+                                </span> 
+                                {c}
                             </li>
                         ))}
                     </ul>
-                    <a href="#book" className={styles.btn} onClick={(e) => { e.preventDefault(); openModal(); }}>Book a Consultation →</a>
+                    <a href="#about" className={styles.btn} onClick={(e) => { e.preventDefault(); const el = document.querySelector('#roadmap'); if(el){ const top = el.getBoundingClientRect().top + window.scrollY - 70; window.scrollTo({top, behavior:'smooth'}); } }}>Know More About Dr. Meenakshi →</a>
                 </div>
 
                 {/* Right image */}

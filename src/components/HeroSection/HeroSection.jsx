@@ -35,47 +35,83 @@ const HeroSection = () => {
                     </div>
 
                     <div className={styles.headingBlock}>
-                        <h1 className={styles.h1Days}>21 Days</h1>
-                        <span className={styles.cursiveLine}>Weight Loss</span>
-                        <span className={styles.cursiveLine}>Challenge</span>
+                        <h1 className="hero-heading">21 Days<br />Weight Loss Challenge</h1>
                     </div>
 
-                    <p className={styles.desc}>
+                    <p className="text-large text-secondary" style={{maxWidth: '480px', marginBottom: 'var(--space-2)'}}>
                         A guided, science-backed program to help you lose weight, boost energy and build
                         lifelong healthy habits in just 21 days!
                     </p>
 
+                    <div className={styles.ctaRow}>
+                        <a href="#book" className={styles.primaryBtn} onClick={(e) => { e.preventDefault(); openModal(); }}>Join the Challenge Now →</a>
+                        <a href="#success" className={styles.watchBtn} onClick={(e) => { e.preventDefault(); const el = document.querySelector('#success'); if(el){ const top = el.getBoundingClientRect().top + window.scrollY - 70; window.scrollTo({top, behavior:'smooth'}); } }}>
+                            <span className={styles.playCircle}>
+                                <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor" style={{marginLeft: '2px'}}>
+                                    <polygon points="5,3 19,12 5,21" />
+                                </svg>
+                            </span>
+                            Watch Video
+                        </a>
+                    </div>
+
                     <div className={styles.featureGrid}>
                         {[
-                            { icon: '📋', t1: 'Personalised', t2: 'Diet Plan' },
-                            { icon: '✅', t1: 'Daily', t2: 'Accountability' },
-                            { icon: '🏅', t1: 'Expert', t2: 'Guidance' },
-                            { icon: '📊', t1: 'Visible', t2: 'Results' },
-                        ].map((f) => (
-                            <div key={f.t1} className={styles.featureItem}>
+                            { 
+                                icon: (
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+                                        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+                                        <line x1="9" y1="12" x2="15" y2="12"></line>
+                                        <line x1="9" y1="16" x2="15" y2="16"></line>
+                                    </svg>
+                                ), 
+                                t1: 'Personalised', 
+                                t2: 'Diet Plan' 
+                            },
+                            { 
+                                icon: (
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                        <line x1="16" y1="2" x2="16" y2="6"></line>
+                                        <line x1="8" y1="2" x2="8" y2="6"></line>
+                                        <line x1="3" y1="10" x2="21" y2="10"></line>
+                                        <path d="m9 16 2 2 4-4"></path>
+                                    </svg>
+                                ), 
+                                t1: 'Daily', 
+                                t2: 'Accountability' 
+                            },
+                            { 
+                                icon: (
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                                        <path d="m9 12 2 2 4-4"></path>
+                                    </svg>
+                                ), 
+                                t1: 'Expert', 
+                                t2: 'Guidance' 
+                            },
+                            { 
+                                icon: (
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                        <path d="M3 3v18h18"></path>
+                                        <path d="m19 9-5 5-4-4-3 3"></path>
+                                    </svg>
+                                ), 
+                                t1: 'Visible', 
+                                t2: 'Results' 
+                            },
+                        ].map((f, idx) => (
+                            <div key={idx} className={styles.featureItem}>
                                 <span className={styles.fIcon}>{f.icon}</span>
                                 <span className={styles.fLabel}>{f.t1}<br />{f.t2}</span>
                             </div>
                         ))}
                     </div>
-
-                    <div className={styles.ctaRow}>
-                        <a href="#book" className={styles.primaryBtn} onClick={(e) => { e.preventDefault(); openModal(); }}>Join the Challenge Now →</a>
-                        <a href="#success" className={styles.watchBtn} onClick={(e) => { e.preventDefault(); const el = document.querySelector('#success'); if(el){ const top = el.getBoundingClientRect().top + window.scrollY - 70; window.scrollTo({top, behavior:'smooth'}); } }}>
-                            <span className={styles.playCircle}>▶</span>
-                            Watch Video
-                        </a>
-                    </div>
                 </div>
 
-                {/* CENTER IMAGE */}
-                <div className={styles.center}>
-                    <img src="/hero_woman.png" alt="21 Day Weight Loss Challenge" className={styles.heroImg} />
-                    <div className={styles.daysBubble}>
-                        <span className={styles.bubbleNum}>21</span>
-                        <span className={styles.bubbleSub}>DAYS TO A<br />BETTER YOU!</span>
-                    </div>
-                </div>
+
 
                 {/* RIGHT COLUMN */}
                 <div className={styles.right}>
@@ -91,7 +127,12 @@ const HeroSection = () => {
                                 'Lifetime Habit Building',
                             ].map((h) => (
                                 <li key={h}>
-                                    <span className={styles.check}>✔</span> {h}
+                                    <span className={styles.check}>
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                                            <polyline points="20 6 9 17 4 12" />
+                                        </svg>
+                                    </span> 
+                                    {h}
                                 </li>
                             ))}
                         </ul>
@@ -112,7 +153,15 @@ const HeroSection = () => {
                                 </div>
                             ))}
                         </div>
-                        <a href="#book" className={styles.limitedSeats} onClick={(e) => { e.preventDefault(); openModal(); }}>🔥 Limited Seats Available!</a>
+                        <a href="#book" className={styles.limitedSeats} onClick={(e) => { e.preventDefault(); openModal(); }}>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{marginRight: '6px', verticalAlign: 'middle'}}>
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                                <circle cx="9" cy="7" r="4" />
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                            </svg>
+                            Limited Seats Available!
+                        </a>
                     </div>
                 </div>
             </div>

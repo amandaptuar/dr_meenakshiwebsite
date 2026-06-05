@@ -4,19 +4,16 @@ import styles from './styles/RoadmapSection.module.css';
 const weeks = [
     {
         label: 'WEEK 1', title: 'RESET YOUR BODY', days: 'Day 1 – 7',
-        color: '#f0faf5', accent: '#2d6a4f',
         items: ['Detox Nutrition', 'Hydration Plan', 'Activity Tracking', 'Habit Building'],
         result: '-1 to -2 KG',
     },
     {
         label: 'WEEK 2', title: 'ACCELERATE FAT LOSS', days: 'Day 8 – 14',
-        color: '#fffbf0', accent: '#e6a817',
         items: ['Customised Diet', 'Daily Accountability', 'Progress Reviews', 'Metabolism Boost'],
         result: '-2 to -4 KG',
     },
     {
         label: 'WEEK 3', title: 'TRANSFORM YOUR LIFE', days: 'Day 15 – 21',
-        color: '#f0f4ff', accent: '#1a56db',
         items: ['Fat Loss Optimization', 'Lifestyle Coaching', 'Final Assessment', 'Long-Term Plan'],
         result: '-3 to -7 KG',
     },
@@ -33,90 +30,147 @@ const RoadmapSection = () => {
     return (
         <section className={styles.section} id="roadmap">
             <div className={styles.container}>
-                <h2 className={styles.heading}>🗺️ 21 Days Transformation Roadmap</h2>
+                <h2 className={styles.heading}>
+                    <span className={styles.leaf}>🌿</span> 21 Days Transformation Roadmap <span className={styles.leaf}>🌿</span>
+                </h2>
 
                 <div className={styles.grid}>
-                    {/* Left - Weeks 1 & 2 */}
-                    <div className={styles.weeksLeft}>
-                        {weeks.slice(0, 2).map((w) => (
-                            <div key={w.label}
-                                className={styles.weekCard}
-                                style={{ background: w.color, borderTop: `4px solid ${w.accent}` }}
-                            >
-                                <div className={styles.wkLabel} style={{ color: w.accent }}>{w.label}</div>
-                                <div className={styles.wkTitle}>{w.title}</div>
-                                <div className={styles.wkDays}>{w.days}</div>
-                                <ul className={styles.wkItems}>
-                                    {w.items.map((it) => <li key={it}>• {it}</li>)}
-                                </ul>
-                                <div className={styles.wkResult} style={{ borderColor: w.accent }}>
-                                    <span>Expected Result</span>
-                                    <strong>{w.result}</strong>
-                                </div>
-                            </div>
-                        ))}
+                    {/* Week 1 */}
+                    <div className={styles.weekCard}>
+                        <div className={styles.wkLabelBadge}>{weeks[0].label}</div>
+                        <div className={styles.wkTitle}>{weeks[0].title}</div>
+                        <div className={styles.wkDays}>{weeks[0].days}</div>
+                        <ul className={styles.wkItems}>
+                            {weeks[0].items.map((it) => (
+                                <li key={it}>
+                                    <svg className={styles.checkIcon} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                    </svg>
+                                    {it}
+                                </li>
+                            ))}
+                        </ul>
+                        <div className={styles.wkResultPill}>
+                            <span className={styles.wkResultLabel}>Expected Result</span>
+                            <strong className={styles.wkResultValue}>{weeks[0].result}</strong>
+                        </div>
                     </div>
 
-                    {/* Center - 21 Days badge + transformation image */}
-                    <div className={styles.center}>
-                        <div className={styles.bigBox}>
-                            <span className={styles.bigNum}>21</span>
-                            <p className={styles.bigSub}>DAYS<br />TO A<br />NEW YOU</p>
+                    {/* Week 2 */}
+                    <div className={styles.weekCard}>
+                        <div className={styles.wkLabelBadge}>{weeks[1].label}</div>
+                        <div className={styles.wkTitle}>{weeks[1].title}</div>
+                        <div className={styles.wkDays}>{weeks[1].days}</div>
+                        <ul className={styles.wkItems}>
+                            {weeks[1].items.map((it) => (
+                                <li key={it}>
+                                    <svg className={styles.checkIcon} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                    </svg>
+                                    {it}
+                                </li>
+                            ))}
+                        </ul>
+                        <div className={styles.wkResultPill}>
+                            <span className={styles.wkResultLabel}>Expected Result</span>
+                            <strong className={styles.wkResultValue}>{weeks[1].result}</strong>
                         </div>
+                    </div>
+
+                    {/* Center Graphic */}
+                    <div className={styles.centerGraphic}>
                         <img
-                            src="/transformation_couple.png"
+                            src="/testimonials/WhatsApp Image 2026-06-05 at 7.49.05 PM.jpeg"
                             alt="21 Days Transformation"
-                            className={styles.transformImg}
+                            className={styles.fullGraphicImg}
                         />
                     </div>
 
-                    {/* Right - Week 3 + Perks */}
-                    <div className={styles.rightCol}>
-                        {/* Week 3 */}
-                        <div
-                            className={styles.weekCard}
-                            style={{ background: weeks[2].color, borderTop: `4px solid ${weeks[2].accent}` }}
-                        >
-                            <div className={styles.wkLabel} style={{ color: weeks[2].accent }}>{weeks[2].label}</div>
-                            <div className={styles.wkTitle}>{weeks[2].title}</div>
-                            <div className={styles.wkDays}>{weeks[2].days}</div>
-                            <ul className={styles.wkItems}>
-                                {weeks[2].items.map((it) => <li key={it}>• {it}</li>)}
-                            </ul>
-                            <div className={styles.wkResult} style={{ borderColor: weeks[2].accent }}>
-                                <span>Expected Result</span>
-                                <strong>{weeks[2].result}</strong>
-                            </div>
+                    {/* Week 3 */}
+                    <div className={styles.weekCard}>
+                        <div className={styles.wkLabelBadge}>{weeks[2].label}</div>
+                        <div className={styles.wkTitle}>{weeks[2].title}</div>
+                        <div className={styles.wkDays}>{weeks[2].days}</div>
+                        <ul className={styles.wkItems}>
+                            {weeks[2].items.map((it) => (
+                                <li key={it}>
+                                    <svg className={styles.checkIcon} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                    </svg>
+                                    {it}
+                                </li>
+                            ))}
+                        </ul>
+                        <div className={styles.wkResultPill}>
+                            <span className={styles.wkResultLabel}>Expected Result</span>
+                            <strong className={styles.wkResultValue}>{weeks[2].result}</strong>
                         </div>
+                    </div>
 
-                        {/* Perks */}
-                        <div className={styles.perks}>
-                            <h3 className={styles.perksTitle}>What You'll Get</h3>
-                            <ul className={styles.perksList}>
-                                {perks.map((p) => <li key={p}><span className={styles.perkCheck}>✅</span> {p}</li>)}
-                            </ul>
-                        </div>
+                    {/* Perks */}
+                    <div className={styles.perksCard}>
+                        <h3 className={styles.perksTitle}>What You'll Get</h3>
+                        <ul className={styles.perksList}>
+                            {perks.map((p) => (
+                                <li key={p}>
+                                    <svg className={styles.checkIconSolid} viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+                                    </svg>
+                                    {p}
+                                </li>
+                            ))}
+                        </ul>
+                        <svg className={styles.yogaIcon} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round">
+                            <path d="M12 2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z" />
+                            <path d="M12 7v6l3 3" />
+                            <path d="M12 13l-3 3" />
+                            <path d="M10 22l-2-6 2-4" />
+                            <path d="M14 22l2-6-2-4" />
+                            <path d="M6 10l2 2" />
+                            <path d="M18 10l-2 2" />
+                        </svg>
                     </div>
                 </div>
 
                 {/* Bottom bar */}
                 <div className={styles.bottomBar}>
                     <div className={styles.bStat}>
-                        <span>📅</span>
+                        <span className={styles.bIconGold}>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                <line x1="16" y1="2" x2="16" y2="6"></line>
+                                <line x1="8" y1="2" x2="8" y2="6"></line>
+                                <line x1="3" y1="10" x2="21" y2="10"></line>
+                            </svg>
+                        </span>
                         <div>
                             <p>5th June 2026</p>
                             <small>Batch Starting Soon</small>
                         </div>
                     </div>
                     <div className={styles.bStat}>
-                        <span>👥</span>
+                        <span className={styles.bIconGold}>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                                <circle cx="9" cy="7" r="4" />
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                            </svg>
+                        </span>
                         <div>
                             <p>25,000+</p>
                             <small>Lives Transformed</small>
                         </div>
                     </div>
                     <div className={styles.bStat}>
-                        <span>⭐</span>
+                        <span className={styles.bIconGold}>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                            </svg>
+                        </span>
                         <div>
                             <p>4.9/5</p>
                             <small>Client Rating</small>

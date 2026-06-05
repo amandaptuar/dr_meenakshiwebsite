@@ -1,17 +1,22 @@
 .statsBar {
-    background: #fff;
-    border-top: 3px solid #2d6a4f;
-    border-bottom: 1px solid #e0ede4;
-    padding: 30px 40px;
+    background: #ffffff;
+    border-top: 1px solid #e8ede9;
+    border-bottom: 1px solid #e8ede9;
+    padding: var(--space-4) 0;
     width: 100%;
+    margin-top: 0;
+    position: relative;
+    z-index: 10;
 }
 
 .inner {
     width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 var(--space-5);
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: stretch;
-    gap: 0;
 }
 
 .card {
@@ -19,58 +24,56 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 4px;
+    gap: var(--space-1);
     flex: 1;
-    padding: 14px 12px;
+    padding: var(--space-1) var(--space-2);
     position: relative;
-    transition: background 0.2s;
+    transition: all 0.2s ease;
 }
 
 .card:not(:last-child)::after {
     content: '';
     position: absolute;
     right: 0;
-    top: 15%;
-    height: 70%;
+    top: 10%;
+    height: 80%;
     width: 1px;
-    background: #e0ede4;
-}
-
-.card:hover {
-    background: #f0faf5;
-    border-radius: 8px;
+    background: #e2e8f0;
 }
 
 .icon {
-    font-size: 28px;
-    margin-bottom: 2px;
-    filter: drop-shadow(0 2px 4px rgba(45, 106, 79, 0.15));
+    color: var(--color-primary);
+    margin-bottom: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .value {
-    font-size: 34px;
-    font-weight: 900;
-    color: #2d6a4f;
-    line-height: 1;
+    font-size: var(--text-h2);
+    font-weight: 800;
+    color: var(--color-primary);
+    line-height: 1.1;
 }
 
 .label {
-    font-size: 16px;
-    color: #555;
-    font-weight: 500;
+    font-size: var(--text-small);
+    color: var(--color-text-dark);
+    font-weight: 600;
     white-space: pre-line;
     line-height: 1.4;
 }
 
 .sub {
-    font-size: 14px;
-    color: #aaa;
-    font-style: italic;
+    font-size: var(--text-caption);
+    color: var(--color-text-light);
+    margin-top: 2px;
 }
 
 @media (max-width: 700px) {
     .inner {
         flex-wrap: wrap;
+        gap: var(--space-2);
     }
 
     .card {
@@ -79,9 +82,5 @@
 
     .card::after {
         display: none;
-    }
-
-    .value {
-        font-size: 22px;
     }
 }

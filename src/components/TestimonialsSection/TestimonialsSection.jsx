@@ -2,56 +2,53 @@ import styles from './styles/TestimonialsSection.module.css';
 
 const people = [
     {
-        name: 'Anita S.',
-        tag: '-18 kg',
-        beforeImg: '/transform_anita.png',
-        afterImg: '/transform_anita.png',
-        result: 'Lost 18 kg in 5 months',
-        detail: 'Better energy & confidence',
-    },
-    {
         name: 'Rohit M.',
-        tag: '-12 kg',
-        beforeImg: '/transform_rohit.png',
-        afterImg: '/transform_rohit.png',
+        tag: '-22 kg',
+        img: '/testimonials/WhatsApp Image 2026-06-05 at 7.51.13 PM.jpeg',
         result: 'Reversed Pre-Diabetes',
         detail: '& reduced belly fat',
     },
     {
         name: 'Neha R.',
-        tag: '-11 kg',
-        beforeImg: '/transform_neha.png',
-        afterImg: '/transform_neha.png',
+        tag: '-15 kg',
+        img: '/testimonials/WhatsApp Image 2026-06-05 at 7.52.39 PM.jpeg',
         result: 'Balanced hormones,',
         detail: 'regular periods & weight loss',
     },
     {
         name: 'Vikram K.',
         tag: '-20 kg',
-        beforeImg: '/transform_vikram.png',
-        afterImg: '/transform_vikram.png',
+        img: '/testimonials/WhatsApp Image 2026-06-05 at 7.52.56 PM.jpeg',
         result: 'Lowered BP & cholesterol',
         detail: 'naturally',
+    },
+    {
+        name: 'Anita S.',
+        tag: '-18 kg',
+        img: '/testimonials/WhatsApp Image 2026-06-05 at 7.53.06 PM.jpeg',
+        result: 'Lost 18 kg in 5 months',
+        detail: 'Better energy & confidence',
     },
 ];
 
 const TestimonialsSection = () => {
     return (
         <section className={styles.section} id="success">
-            <h2 className={styles.title}>— REAL PEOPLE, REAL RESULTS —</h2>
+            <h2 className={styles.title}>Real People, Real Results</h2>
 
             <div className={styles.grid}>
                 {people.map((p) => (
                     <div key={p.name} className={styles.card}>
                         {/* Transformation Photo */}
                         <div className={styles.photoContainer}>
-                            <img src={p.beforeImg} alt={`${p.name} transformation`} className={styles.photo} />
+                            <div className={styles.photoWrapper}>
+                                <img 
+                                    src={p.img} 
+                                    alt={`${p.name} transformation`} 
+                                    className={styles.photo} 
+                                />
+                            </div>
                             <div className={styles.tagBadge}>{p.tag}</div>
-                        </div>
-                        {/* Arrows */}
-                        <div className={styles.arrows}>
-                            <span>◀</span>
-                            <span>▶</span>
                         </div>
                         {/* Info */}
                         <div className={styles.info}>
