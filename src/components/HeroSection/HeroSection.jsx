@@ -7,7 +7,7 @@ const HeroSection = () => {
     const { openModal } = useModal();
 
     useEffect(() => {
-        const target = new Date('2026-06-05T00:00:00');
+        const target = new Date('2026-07-05T00:00:00');
         const tick = setInterval(() => {
             const now = new Date();
             const diff = target - now;
@@ -31,7 +31,7 @@ const HeroSection = () => {
                             <rect x="3" y="4" width="18" height="18" rx="2" /><line x1="16" y1="2" x2="16" y2="6" />
                             <line x1="8" y1="2" x2="8" y2="6" /><line x1="3" y1="10" x2="21" y2="10" />
                         </svg>
-                        STARTS FROM 5TH JUNE 2026
+                        STARTS FROM 5TH JULY 2026
                     </div>
 
                     <div className={styles.headingBlock}>

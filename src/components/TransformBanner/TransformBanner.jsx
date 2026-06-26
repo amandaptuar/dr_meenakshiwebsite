@@ -97,7 +97,7 @@ const TransformBanner = () => {
                         </span>
                         <div>
                             <p className={styles.dateLabel}>Challenge Starts</p>
-                            <p className={styles.dateVal}>5th June 2026</p>
+                            <p className={styles.dateVal}>5th July 2026</p>
                         </div>
                     </div>
                     <div className={styles.seatsRow}>

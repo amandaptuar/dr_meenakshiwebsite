@@ -93,8 +93,7 @@ const ProgramsSection = () => {
                     <p className={styles.tag}>OUR PROGRAMS</p>
                     <h2 className={styles.heading}>Specialised Nutrition Programs<br />For Every Health Goal</h2>
                     <p className={styles.subtext}>
-                        Tailored nutrition plans backed by 25+ years of clinical experience,
-                        covering every major health condition.
+                        Tailored nutrition plans covering every major health condition.
                     </p>
                 </div>
 

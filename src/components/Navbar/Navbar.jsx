@@ -4,7 +4,7 @@ import styles from './styles/Navbar.module.css';
 
 const NAV_LINKS = [
     { label: 'Home', href: '#home' },
-    { label: 'About Dr. Meenakshi', href: '#about' },
+    { label: 'About Dr. Ansh Jain', href: '#about' },
     { label: 'Services', href: '#services' },
     { label: 'Programs', href: '#programs' },
     { label: 'Success Stories', href: '#success' },

@@ -147,7 +147,7 @@ const RoadmapSection = () => {
                             </svg>
                         </span>
                         <div>
-                            <p>5th June 2026</p>
+                            <p>5th July 2026</p>
                             <small>Batch Starting Soon</small>
                         </div>
                     </div>

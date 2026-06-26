@@ -10,20 +10,17 @@ const AboutSection = () => {
                 <div className={styles.left}>
                     <p className={styles.tag}>ABOUT</p>
                     <h2 className={styles.heading}>
-                        Dr. Meenakshi Jain <span className={styles.leaf}>🌿</span>
+                        Ansh Jain <span className={styles.leaf}>🌿</span>
                     </h2>
                     <p className={styles.intro}>
-                        Dr. Meenakshi Jain is a leading Nutrition Expert helping individuals achieve
+                        Ansh Jain is a leading Wellness Coach helping individuals achieve
                         sustainable weight management, reverse lifestyle diseases, and build a healthier
                         relationship with food.
                     </p>
                     <ul className={styles.creds}>
                         {[
-                            'Ph.D. in Nutrition & Dietetics',
-                            '25+ Years of Clinical & Lifestyle Nutrition Experience',
                             'Specialist in Weight Management & Metabolic Health',
                             'Personalized, Practical & Science-backed Diet Plans',
-                            'Trusted by 10,000+ Clients Worldwide',
                         ].map((c) => (
                             <li key={c}>
                                 <span className={styles.tick}>
@@ -35,12 +32,12 @@ const AboutSection = () => {
                             </li>
                         ))}
                     </ul>
-                    <a href="#about" className={styles.btn} onClick={(e) => { e.preventDefault(); const el = document.querySelector('#roadmap'); if(el){ const top = el.getBoundingClientRect().top + window.scrollY - 70; window.scrollTo({top, behavior:'smooth'}); } }}>Know More About Dr. Meenakshi →</a>
+                    <a href="#about" className={styles.btn} onClick={(e) => { e.preventDefault(); const el = document.querySelector('#roadmap'); if(el){ const top = el.getBoundingClientRect().top + window.scrollY - 70; window.scrollTo({top, behavior:'smooth'}); } }}>Know More About Ansh Jain →</a>
                 </div>
 
                 {/* Right image */}
                 <div className={styles.right}>
-                    <img src="/dr_about.png" alt="Dr. Meenakshi Jain" />
+                    <img src="/dr_about.png" alt="Ansh Jain" />
                 </div>
             </div>
         </section>

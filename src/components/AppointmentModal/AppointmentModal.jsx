@@ -1,5 +1,6 @@
 import { useState, useRef } from 'react';
 import { useModal } from '../../context/ModalContext';
+import { supabase } from '../../lib/supabaseClient';
 import styles from './styles/AppointmentModal.module.css';
 
 const AppointmentModal = () => {
@@ -16,23 +17,27 @@ const AppointmentModal = () => {
         const form = formRef.current;
         const data = new FormData(form);
 
-        try {
-            // Formspree endpoint forwarding to matrikaventures2020@gmail.com
-            const response = await fetch('https://formspree.io/f/mwvjkrvo', {
-                method: 'POST',
-                body: data,
-                headers: {
-                    'Accept': 'application/json'
-                }
-            });
+        const name = data.get('name');
+        const email = data.get('email');
+        const phone = data.get('phone');
+        const password = data.get('password');
 
-            if (response.ok) {
+        try {
+            const { error } = await supabase
+                .from('users')
+                .insert([
+                    { name, email, phone, password }
+                ]);
+
+            if (!error) {
                 setStatus('success');
                 form.reset();
             } else {
+                console.error(error);
                 setStatus('error');
             }
         } catch (error) {
+            console.error(error);
             setStatus('error');
         }
     };
@@ -44,14 +49,14 @@ const AppointmentModal = () => {
                     ✕
                 </button>
 
-                <h2 className={styles.title}>Book Your Appointment</h2>
+                <h2 className={styles.title}>Join The Challenge</h2>
                 <p className={styles.subtitle}>Take the first step towards a healthier you.</p>
 
                 {status === 'success' ? (
                     <div className={styles.successMessage}>
                         <div className={styles.successIcon}>✅</div>
                         <h3>Request Received!</h3>
-                        <p>We'll be in touch with you shortly to confirm your appointment.</p>
+                        <p>We'll be in touch with you shortly to confirm your registration.</p>
                         <button className={styles.primaryBtn} onClick={closeModal}>Close</button>
                     </div>
                 ) : (
@@ -69,16 +74,16 @@ const AppointmentModal = () => {
                             <input type="tel" id="phone" name="phone" required placeholder="+91 98765 43210" />
                         </div>
                         <div className={styles.formGroup}>
-                            <label htmlFor="message">Any other details?</label>
-                            <textarea id="message" name="message" placeholder="Tell us a bit about your goals..." rows="3"></textarea>
+                            <label htmlFor="password">Password *</label>
+                            <input type="password" id="password" name="password" required placeholder="Enter a secure password" />
                         </div>
                         {status === 'error' && (
                             <div className={styles.errorMessage}>
-                                Oops! There was a problem submitting your form. Please check your EmailJS configuration.
+                                Oops! There was a problem submitting your registration. Please try again.
                             </div>
                         )}
                         <button type="submit" className={styles.primaryBtn} disabled={status === 'loading'}>
-                            {status === 'loading' ? 'Sending...' : 'Request Appointment'}
+                            {status === 'loading' ? 'Joining...' : 'Join Challenge'}
                         </button>
                     </form>
                 )}
